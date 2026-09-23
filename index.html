@@ -601,7 +601,7 @@
     <div class="summary-pills">
       <div class="summary-pill">
         <div class="dot" style="background:#5aad70"></div>
-        5 Concluídos
+        6 Concluídos
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#e0a020"></div>
@@ -610,10 +610,6 @@
       <div class="summary-pill">
         <div class="dot" style="background:#4a6fa5"></div>
         3 Aguardando
-      </div>
-      <div class="summary-pill">
-        <div class="dot" style="background:#c0392b"></div>
-        1 Pendente ação
       </div>
     </div>
   </div>
@@ -626,10 +622,10 @@
   <div class="overall-progress">
     <div class="progress-label">
       <span>Progresso Geral do Go Live</span>
-      <span>58%</span>
+      <span>63%</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 58%"></div>
+      <div class="progress-fill" style="width: 63%"></div>
     </div>
     <div class="progress-legend">
       <div class="legend-item">
@@ -661,19 +657,20 @@
     </div>
     <div class="cards-grid">
 
-      <div class="card waiting">
+      <div class="card done">
         <div class="card-header">
           <div class="card-title">Solicitação formal de Go Live à Olist</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
           </div>
         </div>
         <div class="card-meta">
           <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
           <span class="meta-tag">Cléber</span>
+          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">📅</span> 23/09/2026</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Eduardo confirmou que o Cléber enviará o e-mail formal solicitando o Go Live. Este e-mail ainda precisa ser enviado para a Olist liberar a publicação.
+          <strong>Observação:</strong> E-mail formal de solicitação do Go Live enviado à Olist em 23/09/2026. Aguardando retorno da Olist com os registros DNS para o apontamento.
         </div>
       </div>
 
@@ -1004,11 +1001,11 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
 
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">1</div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cléber envia e-mail formal de Go Live à Olist</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Cléber</strong> — Destinatário: ajuda.ecommerce@olist.com</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Cléber envia e-mail formal de Go Live à Olist</div>
+              <div style="font-size:0.76rem;color:var(--status-done)">✅ Enviado em 23/09/2026 — Aguardando retorno da Olist com os registros DNS</div>
             </div>
           </div>
 
