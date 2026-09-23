@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Live — Status das Atividades | Casa Goianita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens de Identidade Visual ─── */
+    :root {
+      --green:       #5c6b3a;
+      --green-light: #7a8c50;
+      --green-pale:  #e8eddf;
+      --green-dark:  #3d4827;
+      --cream:       #faf8f4;
+      --cream-2:     #f2ede4;
+      --sand:        #d9cfba;
+      --text:        #2c2c2c;
+      --text-muted:  #6b6b6b;
+      --white:       #ffffff;
+
+      --status-done:    #3d7a4a;
+      --status-done-bg: #eaf4ec;
+      --status-wip:     #b07d20;
+      --status-wip-bg:  #fef9ec;
+      --status-pend:    #c0392b;
+      --status-pend-bg: #fdf0ef;
+      --status-wait:    #4a6fa5;
+      --status-wait-bg: #eef2fb;
+
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(60,60,40,0.10);
+      --shadow-card: 0 4px 24px rgba(60,60,40,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── Cabeçalho ─── */
+    header {
+      background: var(--green-dark);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-emblem {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-emblem svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .logo-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+
+    .logo-text p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .badge-golive {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #d4e6b0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .badge-date {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── Hero Banner ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, var(--green-light) 100%);
+      padding: 52px 32px 42px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    /* ─── Resumo de Pills ─── */
+    .summary-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .summary-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 0.78rem;
+      color: var(--white);
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+    }
+
+    .summary-pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── Layout principal ─── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ─── Seções ─── */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--green-pale);
+    }
+
+    .section-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .section-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── Cards de Atividade ─── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media(min-width: 680px) {
+      .cards-grid.two-col { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--cream-2);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .card.done::before   { background: var(--status-done); }
+    .card.wip::before    { background: var(--status-wip); }
+    .card.pend::before   { background: var(--status-pend); }
+    .card.waiting::before{ background: var(--status-wait); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    /* ─── Status Badge ─── */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .status-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+    }
+
+    .status-done   { background: var(--status-done-bg); color: var(--status-done); }
+    .status-done .dot { background: var(--status-done); }
+
+    .status-wip    { background: var(--status-wip-bg);  color: var(--status-wip); }
+    .status-wip .dot  { background: var(--status-wip); animation: pulse-amber 1.5s infinite; }
+
+    .status-pend   { background: var(--status-pend-bg); color: var(--status-pend); }
+    .status-pend .dot { background: var(--status-pend); animation: pulse-red 1.5s infinite; }
+
+    .status-wait   { background: var(--status-wait-bg); color: var(--status-wait); }
+    .status-wait .dot { background: var(--status-wait); }
+
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.3); }
+    }
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* ─── Metadados do card ─── */
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .meta-icon { font-size: 0.85rem; }
+
+    .meta-tag {
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── Observação ─── */
+    .card-obs {
+      background: var(--cream);
+      border-left: 3px solid var(--sand);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      font-size: 0.80rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card-obs strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ─── Card de alerta/atenção ─── */
+    .alert-box {
+      background: #fff9ec;
+      border: 1px solid #e6c97a;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-top: 4px;
+    }
+
+    .alert-box .alert-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .alert-box .alert-body {
+      font-size: 0.82rem;
+      color: #6b4e00;
+      line-height: 1.6;
+    }
+
+    .alert-box .alert-body strong {
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 3px;
+      color: #4a3600;
+    }
+
+    /* ─── Progress bar geral ─── */
+    .overall-progress {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--cream-2);
+      margin-bottom: 32px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-label span:first-child {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .progress-label span:last-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .progress-track {
+      height: 10px;
+      background: var(--cream-2);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%);
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .progress-legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── Etapas Cielo ─── */
+    .cielo-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cielo-step {
+      display: flex;
+      gap: 14px;
+      position: relative;
+    }
+
+    .cielo-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 36px;
+      width: 2px;
+      bottom: 0;
+      background: var(--cream-2);
+    }
+
+    .step-bullet {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      margin-top: 4px;
+    }
+
+    .step-bullet.done   { background: var(--status-done-bg); color: var(--status-done); border: 2px solid var(--status-done); }
+    .step-bullet.wip    { background: var(--status-wip-bg);  color: var(--status-wip);  border: 2px solid var(--status-wip); }
+    .step-bullet.pend   { background: var(--cream-2);        color: var(--text-muted);  border: 2px dashed var(--sand); }
+    .step-bullet.waiting{ background: var(--status-wait-bg); color: var(--status-wait); border: 2px solid var(--status-wait); }
+
+    .step-content {
+      padding: 4px 0 20px;
+      flex: 1;
+    }
+
+    .step-content h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .step-content p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Rodapé ─── */
+    footer {
+      background: var(--green-dark);
+      padding: 20px 32px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    footer strong {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── Responsivo ─── */
+    @media (max-width: 600px) {
+      .header-inner { padding: 14px 16px; flex-wrap: wrap; }
+      .hero { padding: 36px 16px 28px; }
+      .hero h2 { font-size: 1.7rem; }
+      .main { padding: 24px 14px 40px; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-emblem">
+        <!-- G logo SVG baseado no logo da Goianita -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="rgba(255,255,255,0.5)" stroke-width="4" fill="none"/>
+          <text x="50" y="68" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                font-size="58" font-weight="600" fill="rgba(255,255,255,0.9)">G</text>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1>Casa Goianita</h1>
+        <p>Go Live — Painel de Atividades</p>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span class="badge-golive">🚀 Go Live Olist</span>
+      <span class="badge-date">Atualizado em 23 de setembro de 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-inner">
+    <h2>Status de Implantação<br>da Loja Virtual</h2>
+    <p>Acompanhamento de todas as atividades solicitadas pela equipe de implantação Olist para o Go Live do e-commerce casagoianita.com.br</p>
+    <div class="summary-pills">
+      <div class="summary-pill">
+        <div class="dot" style="background:#5aad70"></div>
+        5 Concluídos
+      </div>
+      <div class="summary-pill">
+        <div class="dot" style="background:#e0a020"></div>
+        3 Em andamento
+      </div>
+      <div class="summary-pill">
+        <div class="dot" style="background:#4a6fa5"></div>
+        3 Aguardando
+      </div>
+      <div class="summary-pill">
+        <div class="dot" style="background:#c0392b"></div>
+        1 Pendente ação
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MAIN ─── -->
+<main class="main">
+
+  <!-- ── Barra de progresso geral ── -->
+  <div class="overall-progress">
+    <div class="progress-label">
+      <span>Progresso Geral do Go Live</span>
+      <span>58%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" style="width: 58%"></div>
+    </div>
+    <div class="progress-legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--status-done)"></div>
+        Concluído
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--status-wip)"></div>
+        Em andamento
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--status-wait)"></div>
+        Aguardando terceiro
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--status-pend)"></div>
+        Ação necessária
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 1 — GO LIVE                      -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚀</div>
+      <h3>Go Live</h3>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card waiting">
+        <div class="card-header">
+          <div class="card-title">Solicitação formal de Go Live à Olist</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Cléber</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Eduardo confirmou que o Cléber enviará o e-mail formal solicitando o Go Live. Este e-mail ainda precisa ser enviado para a Olist liberar a publicação.
+        </div>
+      </div>
+
+      <div class="card waiting">
+        <div class="card-header">
+          <div class="card-title">Apontamento de DNS no Registro.br</div>
+          <div class="status-badge status-wait">
+            <div class="dot"></div>Aguardando
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">⏳</span> Aguarda registros DNS da Olist</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Eduardo realizará o apontamento no Registro.br assim que a Olist fornecer os registros (tipo, nome e valor). Bloqueio: Olist ainda não enviou os dados DNS.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 2 — INTEGRAÇÃO CIELO             -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💳</div>
+      <h3>Integração Cielo — Cartão de Crédito</h3>
+    </div>
+
+    <div class="alert-box" style="margin-bottom:18px">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Go Live parcial aprovado</strong>
+        A publicação do site será feita inicialmente <em>sem a configuração de cartão</em>, usando as credenciais do CNPJ anterior (Casa Design). A integração com o novo CNPJ (Castor Utilidades) será feita logo que o credenciamento junto à Cielo for concluído.
+      </div>
+    </div>
+
+    <div class="cielo-steps">
+
+      <div class="cielo-step">
+        <div class="step-bullet done">✓</div>
+        <div class="step-content">
+          <h4>Etapa 1 — Credenciamento CNPJ anterior (Casa Design)</h4>
+          <p>Credenciais do CNPJ 11.316.256/0001-29 já existentes. Sendo usadas provisoriamente.</p>
+        </div>
+      </div>
+
+      <div class="cielo-step">
+        <div class="step-bullet wip">⟳</div>
+        <div class="step-content">
+          <h4>Etapa 1 — Credenciamento CNPJ novo (Castor Utilidades — 54.805.313/0002-27)</h4>
+          <p>Em andamento pelo financeiro. Depende de abertura de conta interna. Prazo: próximos dias.</p>
+        </div>
+      </div>
+
+      <div class="cielo-step">
+        <div class="step-bullet pend">2</div>
+        <div class="step-content">
+          <h4>Etapa 2 — Ativação no painel Admin Olist</h4>
+          <p>Aguardando novas credenciais (Merchant ID e Merchant Key) do novo CNPJ. Será feita por Cléber / Eduardo seguindo a documentação Olist.</p>
+        </div>
+      </div>
+
+      <div class="cielo-step">
+        <div class="step-bullet pend">3</div>
+        <div class="step-content">
+          <h4>Etapa 3 — Cadastro da URL de Notificação</h4>
+          <p>Envio de e-mail para cieloecommerce@cielo.com.br com a URL: <em>https://www.casagoianita.com.br/api/v2/payments/cielo/notification</em>. Não discutido ainda — ação necessária após ativação.</p>
+        </div>
+      </div>
+
+      <div class="cielo-step">
+        <div class="step-bullet pend">4</div>
+        <div class="step-content">
+          <h4>Etapa 4 — Configuração de Parcelamento</h4>
+          <p>Configuração das condições de pagamento (parcelas e taxas visíveis ao cliente) no Admin Olist. Aguarda conclusão da ativação.</p>
+        </div>
+      </div>
+
+      <div class="cielo-step">
+        <div class="step-bullet pend">✔</div>
+        <div class="step-content">
+          <h4>Validação Final — Pedido de teste</h4>
+          <p>Realizar pedido teste com cartão de crédito para confirmar integração completa. Etapa final do processo.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cards-grid two-col" style="margin-top:16px">
+      <div class="card wip">
+        <div class="card-header">
+          <div class="card-title">Credenciamento Cielo — Novo CNPJ</div>
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Financeiro Casa Goianita</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> CNPJ: 54.805.313/0002-27 (Castor Utilidades Ltda). Processo depende de abertura de conta bancária interna. Previsão: próximos dias.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Validar bandeiras aceitas pela Cielo</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Pendente
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo / Financeiro</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> A Olist solicitou que as bandeiras configuradas no painel sejam exatamente as mesmas suportadas pelo adquirente. Necessário confirmar com a Cielo quais são.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 3 — REDIRECT 301                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔀</div>
+      <h3>Redirect 301 — Migração de URLs</h3>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Mapeamento de/para das URLs (planilha)</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">🔢</span> ~1.670 redirects</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Categorias mantidas ou redirecionadas para equivalentes. Produtos de maior tráfego mapeados individualmente via Google Search Console. Demais produtos redirecionados para busca da loja.
+        </div>
+      </div>
+
+      <div class="card wip">
+        <div class="card-header">
+          <div class="card-title">Importação dos redirects no painel Olist</div>
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Planilha já importada no painel. Lista de produtos ainda em processamento. Todos os destinos apontam para o domínio oficial <em>www.casagoianita.com.br</em>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 4 — TITULARIDADE                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <h3>Alteração de Titularidade — Olist</h3>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Envio dos dados cadastrais para o Termo Aditivo</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">📅</span> 17/09/2026</span>
+        </div>
+        <div class="card-obs">
+          <strong>De:</strong> Casa Design Distribuidora de Utilidades Domésticas Ltda — CNPJ 11.316.256/0001-29<br/>
+          <strong>Para:</strong> Castor Utilidades Ltda — CNPJ 54.805.313/0002-27
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Termo Aditivo assinado por ambas as partes</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">📅</span> 21/09/2026</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Documento devolvido à Olist com assinatura digital dos responsáveis legais de ambas as empresas. Aguardando confirmação da atualização no sistema.
+        </div>
+      </div>
+
+      <div class="card waiting">
+        <div class="card-header">
+          <div class="card-title">Olist confirmar atualização do sistema (titularidade)</div>
+          <div class="status-badge status-wait">
+            <div class="dot"></div>Aguardando Olist
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Olist</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Após receber o Termo assinado em 21/09, a Olist ainda não confirmou a efetivação das atualizações no sistema. Recomenda-se cobrar o retorno via <em>ajuda.ecommerce@olist.com</em>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 5 — INFRAESTRUTURA DIGITAL       -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🌐</div>
+      <h3>Infraestrutura Digital &amp; Analytics</h3>
+    </div>
+    <div class="cards-grid two-col">
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Google Tag Manager — Acesso de administrador</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+        </div>
+        <div class="card-obs">
+          Acesso de administrador regularizado. GTM já instalado na loja Olist.
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Google Analytics GA4 — Nova propriedade</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+        </div>
+        <div class="card-obs">
+          Nova propriedade GA4 criada, instalada via GTM na loja Olist. Medição validada em tempo real.
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Google Search Console — Verificação de domínio</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+        </div>
+        <div class="card-obs">
+          Propriedade do domínio verificada via DNS no Google Search Console.
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Domínio casagoianita.com.br — Renovação</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo</span>
+        </div>
+        <div class="card-obs">
+          Renovação do domínio paga em 23/09/2026. Domínio ativo e disponível para apontamento.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- RESUMO DE PRÓXIMAS AÇÕES               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <h3>Próximas Ações Imediatas</h3>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card pend" style="border-radius:12px">
+        <div class="card-header">
+          <div class="card-title" style="font-size:1rem">Ações prioritárias — o que deve ser feito agora</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">1</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cléber envia e-mail formal de Go Live à Olist</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Cléber</strong> — Destinatário: ajuda.ecommerce@olist.com</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">2</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cobrar Olist para enviar os registros DNS</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Cléber ou Eduardo</strong> — Eduardo fará o apontamento no Registro.br assim que receber os dados</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">3</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cobrar Olist sobre confirmação da titularidade no sistema</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Cléber</strong> — Contato: ajuda.ecommerce@olist.com. Termo assinado entregue em 21/09</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wait);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">4</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Aguardar credenciais Cielo do novo CNPJ e reconfigurar</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Financeiro → Eduardo / Cléber</strong> — Após receber Merchant ID e Key: ativar no Admin + enviar URL de notificação para Cielo + configurar parcelamento</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>
+    <strong>Casa Goianita</strong> &nbsp;·&nbsp; Implantação Loja Virtual Olist &nbsp;·&nbsp;
+    Consultoria <strong>Ecossistema Live</strong> &nbsp;·&nbsp; Setembro 2026
+  </p>
+</footer>
+
+<script>
+  // Anima a barra de progresso ao carregar
+  window.addEventListener('load', () => {
+    const fill = document.querySelector('.progress-fill');
+    if (fill) {
+      fill.style.width = '0%';
+      setTimeout(() => { fill.style.width = '58%'; }, 200);
+    }
+  });
+</script>
+
+</body>
+</html>
