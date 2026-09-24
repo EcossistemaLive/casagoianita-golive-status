@@ -609,7 +609,11 @@
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#4a6fa5"></div>
-        3 Aguardando
+        2 Aguardando
+      </div>
+      <div class="summary-pill">
+        <div class="dot" style="background:#c0392b"></div>
+        1 Pendente ação
       </div>
     </div>
   </div>
@@ -622,10 +626,10 @@
   <div class="overall-progress">
     <div class="progress-label">
       <span>Progresso Geral do Go Live</span>
-      <span>63%</span>
+      <span>68%</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 63%"></div>
+      <div class="progress-fill" style="width: 68%"></div>
     </div>
     <div class="progress-legend">
       <div class="legend-item">
@@ -674,20 +678,19 @@
         </div>
       </div>
 
-      <div class="card waiting">
+      <div class="card pend">
         <div class="card-header">
           <div class="card-title">Apontamento de DNS no Registro.br</div>
-          <div class="status-badge status-wait">
-            <div class="dot"></div>Aguardando
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
           </div>
         </div>
         <div class="card-meta">
           <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
           <span class="meta-tag">Eduardo</span>
-          <span class="meta-item" style="margin-left:4px"><span class="meta-icon">⏳</span> Aguarda registros DNS da Olist</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Eduardo realizará o apontamento no Registro.br assim que a Olist fornecer os registros (tipo, nome e valor). Bloqueio: Olist ainda não enviou os dados DNS.
+          <strong>Observação:</strong> A Olist enviou a documentação e autorizou o Go Live. Eduardo deve realizar os apontamentos no servidor (VTEX -> Olist) e nos sinalizar para avisarmos a Olist.
         </div>
       </div>
 
@@ -1010,10 +1013,10 @@
           </div>
 
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">2</div>
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">2</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cobrar Olist para enviar os registros DNS</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Cléber ou Eduardo</strong> — Eduardo fará o apontamento no Registro.br assim que receber os dados</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Realizar apontamentos de DNS e notificar Olist</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo (apontar) e Cléber (avisar)</strong> — Olist enviou o <a href="https://ajuda.olist.com/dominio-e-seguranca/configuracaodedns" target="_blank" style="color:var(--green);text-decoration:underline">link com as instruções</a>. Após o apontamento, precisamos dar ok para eles concluírem o Go Live.</div>
             </div>
           </div>
 
