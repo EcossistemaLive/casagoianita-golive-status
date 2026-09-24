@@ -678,11 +678,11 @@
         </div>
       </div>
 
-      <div class="card pend">
+      <div class="card done" style="border: 2px solid var(--status-done); background-color: var(--status-done-bg);">
         <div class="card-header">
           <div class="card-title">Apontamento de DNS no Registro.br</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
           </div>
         </div>
         <div class="card-meta">
@@ -690,7 +690,7 @@
           <span class="meta-tag">Eduardo</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> A Olist enviou a documentação e autorizou o Go Live. Eduardo deve realizar os apontamentos no servidor (VTEX -> Olist) e nos sinalizar para avisarmos a Olist.
+          <strong>Observação:</strong> Apontamentos realizados e propagados. <strong>A loja já está no ar (www.casagoianita.com.br)!</strong> 🎉
         </div>
       </div>
 
@@ -989,6 +989,51 @@
   </div>
 
   <!-- ══════════════════════════════════════ -->
+  <!-- SEÇÃO 6 — APP LISTA DE CASAMENTO       -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🎁</div>
+      <h3>Lista de Casamento (Huapps)</h3>
+    </div>
+    <div class="cards-grid two-col">
+
+      <div class="card wip">
+        <div class="card-header">
+          <div class="card-title">Cadastrar Chave PIX (Conta Antiga)</div>
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo / Financeiro</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Leonam (Huapps) orientou cadastrar a chave PIX do CNPJ antigo no painel para receber o repasse das vendas que já ocorreram.
+        </div>
+      </div>
+
+      <div class="card waiting">
+        <div class="card-header">
+          <div class="card-title">Migração para Novo CNPJ</div>
+          <div class="status-badge status-wait">
+            <div class="dot"></div>Aguardando
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Leonam (Huapps)</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Leonam está desenvolvendo a função de "Desvincular Subconta". Após essa liberação, Eduardo poderá cadastrar o novo CNPJ (Castor).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
   <!-- RESUMO DE PRÓXIMAS AÇÕES               -->
   <!-- ══════════════════════════════════════ -->
   <div class="section">
@@ -1012,11 +1057,11 @@
             </div>
           </div>
 
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">2</div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Realizar apontamentos de DNS e notificar Olist</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo (apontar) e Cléber (avisar)</strong> — Olist enviou o <a href="https://ajuda.olist.com/dominio-e-seguranca/configuracaodedns" target="_blank" style="color:var(--green);text-decoration:underline">link com as instruções</a>. Após o apontamento, precisamos dar ok para eles concluírem o Go Live.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Realizar apontamentos de DNS e notificar Olist</div>
+              <div style="font-size:0.76rem;color:var(--status-done)">✅ Apontamentos realizados e propagados. A loja já está no ar!</div>
             </div>
           </div>
 
@@ -1029,7 +1074,15 @@
           </div>
 
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wait);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">4</div>
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cadastrar Chave PIX (antiga) na Huapps</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo / Financeiro</strong> — Cadastrar o PIX no painel Lista de Casamento para receber repasses das vendas já efetuadas.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wait);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
               <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Aguardar credenciais Cielo do novo CNPJ e reconfigurar</div>
               <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Financeiro → Eduardo / Cléber</strong> — Após receber Merchant ID e Key: ativar no Admin + enviar URL de notificação para Cielo + configurar parcelamento</div>
