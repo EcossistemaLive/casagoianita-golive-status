@@ -601,11 +601,11 @@
     <div class="summary-pills">
       <div class="summary-pill">
         <div class="dot" style="background:#5aad70"></div>
-        10 Concluídos
+        11 Concluídos
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#e0a020"></div>
-        2 Em andamento
+        1 Em andamento
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#4a6fa5"></div>
@@ -613,7 +613,7 @@
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#c0392b"></div>
-        4 Pendente ação
+        5 Pendente ação
       </div>
     </div>
   </div>
@@ -626,10 +626,10 @@
   <div class="overall-progress">
     <div class="progress-label">
       <span>Progresso Geral do Go Live</span>
-      <span>56%</span>
+      <span>58%</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 56%"></div>
+      <div class="progress-fill" style="width: 58%"></div>
     </div>
     <div class="progress-legend">
       <div class="legend-item">
@@ -796,6 +796,21 @@
         </div>
         <div class="card-obs">
           <strong>Observação:</strong> A Olist solicitou que as bandeiras configuradas no painel sejam exatamente as mesmas suportadas pelo adquirente. Necessário confirmar com a Cielo quais são.
+        </div>
+      </div>
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Configuração do Antifraude (ClearSale)</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo / Financeiro</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Configurar a integração do sistema de antifraude ClearSale para garantir a segurança no processamento dos pagamentos.
         </div>
       </div>
     </div>
@@ -998,11 +1013,11 @@
     </div>
     <div class="cards-grid two-col">
 
-      <div class="card wip">
+      <div class="card done">
         <div class="card-header">
           <div class="card-title">Cadastrar Chave PIX (Conta Antiga)</div>
-          <div class="status-badge status-wip">
-            <div class="dot"></div>Em andamento
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
           </div>
         </div>
         <div class="card-meta">
@@ -1010,7 +1025,7 @@
           <span class="meta-tag">Eduardo / Financeiro</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Leonam (Huapps) orientou cadastrar a chave PIX do CNPJ antigo no painel para receber o repasse das vendas que já ocorreram.
+          <strong>Observação:</strong> Chave PIX cadastrada no painel com sucesso para recebimento dos repasses de vendas anteriores.
         </div>
       </div>
 
@@ -1121,11 +1136,19 @@
             </div>
           </div>
 
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Cadastrar Chave PIX (antiga) na Huapps</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo / Financeiro</strong> — Cadastrar o PIX no painel Lista de Casamento para receber repasses das vendas já efetuadas.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Cadastrar Chave PIX (antiga) na Huapps</div>
+              <div style="font-size:0.76rem;color:var(--status-done)">✅ Chave PIX cadastrada. Repasses das vendas anteriores liberados.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Configurar sistema antifraude (ClearSale)</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo e Financeiro</strong> — Realizar a integração da ClearSale na loja.</div>
             </div>
           </div>
 
