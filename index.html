@@ -588,7 +588,7 @@
     </div>
     <div class="header-badge">
       <span class="badge-golive">🚀 Go Live Olist</span>
-      <span class="badge-date">Atualizado em 1º de outubro de 2026</span>
+      <span class="badge-date">Atualizado em 8 de outubro de 2026</span>
     </div>
   </div>
 </header>
@@ -601,19 +601,19 @@
     <div class="summary-pills">
       <div class="summary-pill">
         <div class="dot" style="background:#5aad70"></div>
-        11 Concluídos
+        16 Concluídos
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#e0a020"></div>
-        1 Em andamento
+        3 Em andamento
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#4a6fa5"></div>
-        2 Aguardando
+        4 Aguardando/Bloqueado
       </div>
       <div class="summary-pill">
         <div class="dot" style="background:#c0392b"></div>
-        5 Pendente ação
+        6 Pendente ação
       </div>
     </div>
   </div>
@@ -626,10 +626,10 @@
   <div class="overall-progress">
     <div class="progress-label">
       <span>Progresso Geral do Go Live</span>
-      <span>58%</span>
+      <span>55%</span>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 58%"></div>
+      <div class="progress-fill" style="width: 55%"></div>
     </div>
     <div class="progress-legend">
       <div class="legend-item">
@@ -706,6 +706,10 @@
       <h3>Integração Cielo — Cartão de Crédito</h3>
     </div>
 
+    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; margin-top: -6px;">
+      <strong>07/10:</strong> no site, o cartão está processando pela Cielo e o PIX pelo banco digital da Olist.
+    </p>
+
     <div class="alert-box" style="margin-bottom:18px">
       <div class="alert-icon">⚠️</div>
       <div class="alert-body">
@@ -725,10 +729,10 @@
       </div>
 
       <div class="cielo-step">
-        <div class="step-bullet wip">⟳</div>
+        <div class="step-bullet waiting">!</div>
         <div class="step-content">
           <h4>Etapa 1 — Credenciamento CNPJ novo (Castor Utilidades — 54.805.313/0002-27)</h4>
-          <p>Em andamento pelo financeiro. Depende de abertura de conta interna. Prazo: próximos dias.</p>
+          <p>Bloqueado: depende da liberação do Sr. Carlos para o financeiro iniciar o processo.</p>
         </div>
       </div>
 
@@ -767,11 +771,11 @@
     </div>
 
     <div class="cards-grid two-col" style="margin-top:16px">
-      <div class="card wip">
+      <div class="card waiting">
         <div class="card-header">
           <div class="card-title">Credenciamento Cielo — Novo CNPJ</div>
-          <div class="status-badge status-wip">
-            <div class="dot"></div>Em andamento
+          <div class="status-badge status-wait">
+            <div class="dot"></div>Bloqueado
           </div>
         </div>
         <div class="card-meta">
@@ -779,15 +783,15 @@
           <span class="meta-tag">Financeiro Casa Goianita</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> CNPJ: 54.805.313/0002-27 (Castor Utilidades Ltda). Processo depende de abertura de conta bancária interna. Previsão: próximos dias.
+          <strong>Observação:</strong> 01/10: o credenciamento está travado porque o Sr. Carlos ainda não liberou a Eryca para iniciar o processo. 05/10: Eduardo foi à loja apoiar o financeiro.
         </div>
       </div>
 
-      <div class="card pend">
+      <div class="card done">
         <div class="card-header">
           <div class="card-title">Validar bandeiras aceitas pela Cielo</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Pendente
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
           </div>
         </div>
         <div class="card-meta">
@@ -795,22 +799,22 @@
           <span class="meta-tag">Eduardo / Financeiro</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> A Olist solicitou que as bandeiras configuradas no painel sejam exatamente as mesmas suportadas pelo adquirente. Necessário confirmar com a Cielo quais são.
+          <strong>Observação:</strong> 01/10: Eduardo verificou e as bandeiras já estavam corretas.
         </div>
       </div>
-      <div class="card pend">
+      <div class="card wip">
         <div class="card-header">
           <div class="card-title">Configuração do Antifraude (ClearSale)</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento
           </div>
         </div>
         <div class="card-meta">
           <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
-          <span class="meta-tag">Eduardo / Financeiro</span>
+          <span class="meta-tag">Eduardo / Eryca</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Configurar a integração do sistema de antifraude ClearSale para garantir a segurança no processamento dos pagamentos.
+          <strong>Observação:</strong> 01/10: Eduardo e Eryca combinaram de fazer a configuração juntos. 05/10: verificação ainda em curso. Conclusão não confirmada.
         </div>
       </div>
     </div>
@@ -856,6 +860,22 @@
         </div>
         <div class="card-obs">
           <strong>Observação:</strong> Redirecionamentos de páginas principais, categorias e produtos com maior volume de visitas já importados com sucesso na plataforma Olist.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Formalizar pedido de dados das listas à VTEX</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">A definir</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 29/09: o Luiz Portal pediu para formalizar quais informações das listas antigas precisamos da VTEX (contato da N1). Os arquivos exportados têm só os IDs das listas, sem o slug com o nome.
         </div>
       </div>
 
@@ -919,7 +939,7 @@
           <span class="meta-tag">Olist</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Após receber o Termo assinado em 21/09, a Olist ainda não confirmou a efetivação das atualizações no sistema. Recomenda-se cobrar o retorno via <em>ajuda.ecommerce@olist.com</em>.
+          <strong>Observação:</strong> Após receber o Termo assinado em 21/09, a Olist ainda não confirmou a efetivação das atualizações no sistema. 01/10: nova cobrança enviada por e-mail pelo Eduardo; ainda sem resposta.
         </div>
       </div>
 
@@ -1000,6 +1020,22 @@
         </div>
       </div>
 
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Ícone do WhatsApp no site</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">ShopTemas (Luis)</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 08/10: pedido pela Débora e configurado no mesmo dia pelo painel da Olist. Validado pelo Eduardo.
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1041,47 +1077,47 @@
           <span class="meta-tag">Leonam (Huapps)</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Leonam está desenvolvendo a função de "Desvincular Subconta". Após essa liberação, Eduardo poderá cadastrar o novo CNPJ (Castor).
+          <strong>Observação:</strong> 01/10: a migração para o novo CNPJ na VenturePay ainda não foi feita. 02/10: Leonam passou a integrar a Cielo direto no app das listas como alternativa à VenturePay (ver item 'Integração Cielo direta no app Huapps').
         </div>
       </div>
 
-      <div class="card pend">
+      <div class="card waiting">
         <div class="card-header">
           <div class="card-title">Redirecionamento de URLs (Listas Antigas)</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-wait">
+            <div class="dot"></div>Bloqueado
           </div>
         </div>
         <div class="card-meta">
           <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
-          <span class="meta-tag">Eduardo e Leonam</span>
+          <span class="meta-tag">Eduardo / ShopTemas (Luis)</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Configurar redirecionamento de URL das listas de casamento antigas que ainda estão ativas, garantindo o acesso no novo ambiente da loja.
+          <strong>Observação:</strong> 29/09: o redirecionador da Olist não lê o que vem depois do '#' nos links antigos, e por isso eles caem na busca. 05/10: o suporte da Olist orientou criar um script no front-end da loja. Essa publicação é feita pela ShopTemas; Eduardo deve alinhar com o Luis. Enquanto isso, só as noivas que entraram em contato receberam os links novos.
         </div>
       </div>
 
-      <div class="card pend">
+      <div class="card wip">
         <div class="card-header">
           <div class="card-title">Taxas da Venture Pay</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento
           </div>
         </div>
         <div class="card-meta">
           <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
-          <span class="meta-tag">Leonam e Débora</span>
+          <span class="meta-tag">Eduardo/Leonam</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Atualizar e guardar as informações sobre as taxas aplicadas pela Venture Pay no aplicativo.
+          <strong>Observação:</strong> 03/10: a tabela de taxas da VenturePay foi recebida. 05/10: a VenturePay reduziu as taxas, e o Leonam enviou a tabela nova. 06/10: Cléber pediu ao Eduardo para repassar a tabela à Eryca; o repasse ainda não foi confirmado. A Live vai tentar negociar para que os pagamentos não precisem passar pela VenturePay.
         </div>
       </div>
 
-      <div class="card pend">
+      <div class="card done">
         <div class="card-header">
           <div class="card-title">Validação de Formas de Pagamento</div>
-          <div class="status-badge status-pend">
-            <div class="dot"></div>Ação necessária
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
           </div>
         </div>
         <div class="card-meta">
@@ -1089,7 +1125,135 @@
           <span class="meta-tag">Eduardo e Leonam</span>
         </div>
         <div class="card-obs">
-          <strong>Observação:</strong> Verificar e confirmar o pleno funcionamento de todas as formas de pagamento disponíveis nas listas de casamento.
+          <strong>Observação:</strong> 05/10: cartão restabelecido. 06/10: PIX restabelecido ('100% funcionando'). Compras de teste aprovadas em 06/10 (Eduardo e Karinne, na loja) e em 08/10 (Leonam).
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Instabilidade da VenturePay (listas sem vendas)</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Huapps/VenturePay</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Entre cerca de 30/09 e 06/10 as compras nas listas falharam por causa de atualizações nas APIs da VenturePay. O cartão foi normalizado em 05/10 e o PIX em 06/10. Os pedidos 'não concluídos' desse período são anteriores à correção.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Integração Cielo direta no app Huapps</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eryca / Eduardo / Cléber</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> Os tokens já foram enviados ao Leonam pelo Eduardo. Falta abrir um chamado no suporte da Cielo pedindo o Client Id e o Client Secret do Silent Order Post, informando o MerchantId, e cadastrar a URL de notificação. 07/10: o chamado ainda não foi aberto; pedir à Eryca que compartilhe o acesso ao chamado.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Frete cobrado em pedidos da lista</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Eduardo / E-commerce / Leonam</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 08/10: um pedido da lista entrou na Olist com frete SEDEX de R$ 28,58. Em Goiânia a entrega das listas é própria, grátis e feita por rota. O app da Huapps não cobra frete nem tem integração com os Correios, então a cobrança vem da configuração da Olist. Proposta: frete grátis em Goiânia (até 7 dias) e SEDEX como opção para envios mais rápidos.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Pedidos da lista entram na Olist com os dados da noiva</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Leonam / Eduardo</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 06/10 e 08/10: o pedido chega na Olist em nome da noiva, e não do comprador, então a nota fiscal sairia em nome da noiva. Na VTEX o pedido ficava em nome do comprador, com observação indicando a lista. Provável correção de parâmetro na integração.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Opção de pedir ajuda no checkout da lista</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Huapps</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 08/10: a Débora pediu um recurso no checkout da lista para o convidado chamar ajuda se tiver dificuldade.
+        </div>
+      </div>
+
+      <div class="card pend">
+        <div class="card-header">
+          <div class="card-title">Ajustes na lista impressa</div>
+          <div class="status-badge status-pend">
+            <div class="dot"></div>Ação necessária
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Huapps</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 30/09: a Central pediu menos páginas na impressão, menos espaço entre os itens e o endereço (endereço, setor, CEP) em uma única linha.
+        </div>
+      </div>
+
+      <div class="card done">
+        <div class="card-header">
+          <div class="card-title">Upload de foto na lista</div>
+          <div class="status-badge status-done">
+            <div class="dot"></div>Concluído
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Leonam</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 01/10: noivas não conseguiam enviar foto. Corrigido no mesmo dia e confirmado pelo Eduardo.
+        </div>
+      </div>
+
+      <div class="card wip">
+        <div class="card-header">
+          <div class="card-title">Reclamação de convidados (evento em 10/10)</div>
+          <div class="status-badge status-wip">
+            <div class="dot"></div>Em andamento (Urgente)
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="meta-item"><span class="meta-icon">👤</span> Responsável:</span>
+          <span class="meta-tag">Débora/Central + Leonam</span>
+        </div>
+        <div class="card-obs">
+          <strong>Observação:</strong> 07/10 e 08/10: convidados relataram que PIX/cartão foram recusados. Leonam informou que as tentativas falhas são anteriores à correção de 06/10. Pendente: dar OK para cancelar pedidos não concluídos e avisar a noiva que a lista está funcionando.
         </div>
       </div>
 
@@ -1112,75 +1276,83 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
 
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
-            <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Cléber envia e-mail formal de Go Live à Olist</div>
-              <div style="font-size:0.76rem;color:var(--status-done)">✅ Enviado em 23/09/2026 — Aguardando retorno da Olist com os registros DNS</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
-            <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Realizar apontamentos de DNS e notificar Olist</div>
-              <div style="font-size:0.76rem;color:var(--status-done)">✅ Apontamentos realizados e propagados. A loja já está no ar!</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
-            <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Cobrar Olist sobre confirmação da titularidade no sistema</div>
-              <div style="font-size:0.76rem;color:var(--status-done)">✅ Cobrança realizada em 23/09/2026 — Aguardando efetivação pela Olist no sistema</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-done-bg);border-radius:8px;border:1px solid #b8dfc1">
-            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-done);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">✓</div>
-            <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--status-done);margin-bottom:2px;text-decoration:line-through;opacity:0.8">Cadastrar Chave PIX (antiga) na Huapps</div>
-              <div style="font-size:0.76rem;color:var(--status-done)">✅ Chave PIX cadastrada. Repasses das vendas anteriores liberados.</div>
-            </div>
-          </div>
-
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
             <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Configurar sistema antifraude (ClearSale)</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo e Financeiro</strong> — Realizar a integração da ClearSale na loja.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">1. Abrir chamado Cielo (Client Id/Secret e Webhook)</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eryca (acompanhamento Eduardo/Cléber)</strong> — Para integração direta no app Huapps. Compartilhar acesso ao chamado.</div>
             </div>
           </div>
 
-          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border-radius:8px;border:1px solid var(--cream-2)">
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-wait-bg);border-radius:8px;border:1px solid #4a6fa5">
             <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wait);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Aguardar credenciais Cielo do novo CNPJ e reconfigurar</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Financeiro → Eduardo / Cléber</strong> — Após receber Merchant ID e Key: ativar no Admin + enviar URL de notificação para Cielo + configurar parcelamento</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">2. Liberar credenciamento Cielo do novo CNPJ (Bloqueado)</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Sr. Carlos</strong> — Liberar a Eryca para prosseguir com o credenciamento.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-wip-bg);border-radius:8px;border:1px solid #e0a020">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">⟳</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">3. Encerrar caso da lista com evento em 10/10 (Urgente)</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Débora/Central + Leonam</strong> — Dar o OK para cancelar os pedidos não concluídos e avisar a noiva que a lista está funcionando.</div>
             </div>
           </div>
 
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
             <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Configurar redirecionamento de URL das listas antigas</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo e Leonam</strong> — Garantir que as listas de casamento antigas ativas redirecionem corretamente no novo sistema.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">4. Corrigir o frete dos pedidos da lista</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo / E-commerce / Leonam</strong> — Grátis em Goiânia (até 7 dias) e SEDEX opcional.</div>
             </div>
           </div>
 
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
             <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Atualizar e arquivar taxas da Venture Pay</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Leonam e Débora</strong> — Registrar as informações corretas das taxas aplicadas nas transações da lista.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">5. Corrigir dados do comprador nos pedidos da lista na Olist</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Leonam</strong> — Atualmente chegam em nome da noiva.</div>
             </div>
           </div>
 
           <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
             <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">Verificar formas de pagamento (Listas)</div>
-              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo e Leonam</strong> — Confirmar o pleno funcionamento de todas as opções de pagamento oferecidas.</div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">6. Alinhar script de redirecionamento das listas antigas</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo / Luis (ShopTemas)</strong> — Script no front-end para redirecionar as URLs corretamente.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-wip-bg);border-radius:8px;border:1px solid #e0a020">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wip);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">⟳</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">7. Concluir a configuração do antifraude ClearSale</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo / Eryca</strong> — Finalizar a integração.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-wait-bg);border-radius:8px;border:1px solid #4a6fa5">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-wait);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">8. Cobrar confirmação da titularidade</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo</strong> — Aguardando efetivação pela Olist no sistema.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">9. Repassar e arquivar tabela nova da VenturePay</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Eduardo</strong> — Repassar à Eryca as taxas atualizadas.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--status-pend-bg);border-radius:8px;border:1px solid #f5c2c7">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--status-pend);color:white;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px">!</div>
+            <div>
+              <div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:2px">10. Ajustes da lista impressa e opção de ajuda</div>
+              <div style="font-size:0.76rem;color:var(--text-muted)">Responsável: <strong>Huapps</strong> — Menos páginas, layout ajustado e botão de ajuda no checkout.</div>
             </div>
           </div>
 
@@ -1206,7 +1378,7 @@
     const fill = document.querySelector('.progress-fill');
     if (fill) {
       fill.style.width = '0%';
-      setTimeout(() => { fill.style.width = '58%'; }, 200);
+      setTimeout(() => { fill.style.width = '55%'; }, 200);
     }
   });
 </script>
